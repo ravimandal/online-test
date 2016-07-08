@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>login</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="style.css">
+
+
+
+
+<script  src="signup.js"></script>
+
+
+
+</head>
+
+<body >
+  <nav>
+  <div class="container">
+    <ul class="nav">      
+      <li><a href="siup.html">signup</a></li>
+      <li><a href="login.html">login</a></li>
+      <li><a href="admin_login.html">admin</a></li>
+
+      </ul>
+  </div>
+</nav>
+<center><h2> </h2></center>
+ <div class="log1">
+<form action="signup.php"  method="post"  name="registration" onsubmit="return formValidation();">  
+
+  <fieldset>
+  <legend> Sinup Page</legend>
+    <label for="username"> Name</label><br>
+    <input type="text" placeholder="Enter your first name" name="username" ><br>
+
+   
+	 
+	 <label for="email">Email</label><br>
+    <input type="text" placeholder="Enter your  email" name="uemail" ><br>
+
+<label for="userid">UserId</label><br>
+    <input type="text" placeholder="Enter your  UserId" name="userid" ><br>
+	  
+	   
+	 <label for="passid">Password</label><br>
+    <input type="text" placeholder="Enter your password" name="passid" ><br>
+	 
+	  
+	
+	
+	<select name="ucountry">      
+     <option selected="" value="Default">( Gender)</option>                                      
+      <option value="australia">Male</option>
+      <option value="canada">Feamale</option>
+    </select><br>
+  
+    
+ <input type="reset" value="reset"  />   <input type="submit"  value="Submit" name="submit" />
+</fieldset> 
+ </form>
+</div>
+</body>
+</html>
+
