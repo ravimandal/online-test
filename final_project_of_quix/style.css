@@ -225,6 +225,18 @@ input[type=text], select {
    box-sizing: border-box;
 }
 
+input[type=password], select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 4px;
+   box-sizing: border-box;
+}
+
+
+
 input[type=submit],input[type=reset] {
     width: 25px%;
     background-color:  #002147;
@@ -270,7 +282,16 @@ input[type=reset]:hover {
     border-radius: 5px ;
     background-color: #f2f2f2;
     padding:50px 80px 50px 80px ;
-    margin:40px 180px 40px 180px;   
+    margin:40px 180px 40px;
+    // margin:auto;
+   
+    
+	}
+.log2{
+    background-color: #f2f2f2;
+     padding:40px 20px 40px 20px ;
+     margin:40px 30px 40px 30px;
+   
     
 	}
 
@@ -287,18 +308,25 @@ select {
 
 table {
 
-    
+ 
 
 }
 
-table, td {
-    border: 1px solid black;
-text-align:center;
-border-bottom: 3px solid #FF8C00;
-border-collapse: collapse;
 
+table, td{
+        border: 1px solid black;
+	text-align:center;
+	border-bottom: 3px solid #FF8C00;
+	border-collapse: collapse;
+	margin:auto;
+        width:10%;
+        	
 
 }
+
+
+
+
 tr:nth-child(even){background-color: white;}
 th{
     height: 50px;
@@ -317,5 +345,19 @@ border:2px solid black;
     border-radius: 8px;
 
 }
+
+img{
+    display: inline-block;
+    border: 3px solid #FF8C00;
+    border-radius: 4px;
+    padding: 5px;
+    transition: 0.3s;
+
+    border-radius:5px;
+}
+img:hover {
+    box-shadow: 0 0 6px 3px #002147;
+}
+
 
 
