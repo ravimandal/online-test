@@ -7,13 +7,14 @@ header("location:/nitesh/final_project_of_quix/login.html");
 }
    else
       {
-function my_function()
-{
+//function my_function()
+//{
 
   if(isset($_SESSION['QuestionCount'])  && $_SESSION['QuestionCount']==10)
    {
+   
 
-   header("location:/nitesh/final_project_of_quix/result.php");
+   header("location:/nitesh/final_project_of_quix/subject_status1.php");
 //exit();
    }
 
@@ -74,6 +75,11 @@ new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+
+
+
+
+
 $test_value=0;
 
 //$test_value=isset($_GET['type']);
@@ -85,11 +91,21 @@ if(isset($_GET['type']))
 	
     //print_r($_SESSION['value']);
 }
+$b=$_SESSION['seas_user_id'];
+//$z=1;
+$query = mysqli_query($conn, "SELECT * FROM subject_status WHERE user_id='".$b."' AND subject_type='".$test_value."' AND status='1' ");
+//print_r($query) ;
+//exit();
+if(mysqli_num_rows($query) > 0){
 
-
-
-
- $sql = "SELECT id,img_url, question, answer1, answer2, answer3, answer4, answer  FROM questions_old where q_type='$test_value' ORDER BY RAND() LIMIT 1";
+    echo "<br/><br/><span><center><h2>User  aleredy made test...!!<br/>  If u want give another subject test :)</h2></center></span>";
+//header("location:/nitesh/final_project_of_quix/question.php/?type=$z");
+}else{
+//$prev=0;
+//print_r($_SESSION['q_id']);
+$qId = implode(',',$_SESSION['q_id']);
+$sql = "SELECT id,img_url, question, answer1, answer2, answer3, answer4, answer  FROM questions_old where q_type='$test_value' AND id NOT IN ($qId) ORDER BY RAND() LIMIT 1";
+ //echo $sql;
 //$result = $conn->query($sql);
 ?>
 
@@ -100,18 +116,29 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-$_SESSION['QuestionCount'] = $_SESSION['QuestionCount']+1;
+//$_SESSION['QuestionCount'] = $_SESSION['QuestionCount']+1;
 
 ?>
 <?php
 
 //if ((!isset($_SESSION['q_id']))||(isset($_SESSION['q_id']) &&  is_array($_SESSION['q_id']) && !in_array($row["id"],$_SESSION['q_id'])))
   //{
-  	//$_SESSION['q_id'][] = $row["id"];
-    //print_r($_SESSION['q_id']);
+  	//$_SESSION['q_id']= $row["id"];
+	array_push($_SESSION['q_id'], $row["id"]);
+
+    //$prev=$_SESSION['q_id'];
+
 ?>
   
-<h3><?php echo $row["question"]; ?></h3>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <img src="/home/spare-ubuntu/workspace/release_dir/nitesh/final_project_of_quix/images/<?php echo $row["img_url"]; ?>" width="50px" height="50px"/>
+<h3><?php echo $row["question"]; ?></h3></br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+<?php
+if($row["img_url"]!='')
+{?>
+<img src="/nitesh/final_project_of_quix/images/<?php echo $row["img_url"]; ?>" width="250px" height="150px"/>
+<?php
+}
+?>
 <input type="hidden" id="question_id" name="question_id" value="<?php echo $row["id"]; ?>" />
 <div>
 	
@@ -185,9 +212,9 @@ $query = $conn->query($sql_qy);
   }
  // else{
   //	my_function();
-  //}
+  
 ?>                  
-<input type="submit" class="hvr-grow"  name="SubmitButton" value="Next" onClick="return ValidateForm(this.form)" />
+<input type="submit" class="hvr-grow"  name="submit" value="Next" onClick="return ValidateForm(this.form)" />
                                  
 </form>
 </fieldset>
@@ -198,7 +225,7 @@ $query = $conn->query($sql_qy);
 
 //echo "value has been set ";
 echo $_SESSION['QuestionCount'];
-}
-}
-my_function();
+}}
+//}
+//my_function();
 ?>

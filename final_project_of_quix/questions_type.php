@@ -23,7 +23,7 @@ header("location:/nitesh/final_project_of_quix/admin_login.html");
    <nav>
   <div class="container">
     <ul class="nav">      
-      <li><a href="/nitesh/final_project_of_quix/siup.html">Logout</a></li>
+      <li><a href="/nitesh/final_project_of_quix/login.html">Logout</a></li>
 
       </ul>
   </div>
@@ -37,11 +37,11 @@ header("location:/nitesh/final_project_of_quix/admin_login.html");
   <legend> Select Subject</legend>
     <div class="contact">
 <center>
-	<a href="/nitesh/final_project_of_quix/question.php/?type=1">Computer</a>
+	<a href="/nitesh/final_project_of_quix/subject_status.php/?type=1">Computer</a>
 	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-	<a href="/nitesh/final_project_of_quix/question.php/?type=2">Network</a>
+	<a href="/nitesh/final_project_of_quix/subject_status.php/?type=2">Network</a>
 	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-	<a href="/nitesh/final_project_of_quix/question.php/?type=3">Business</a>
+	<a href="/nitesh/final_project_of_quix/subject_status.php/?type=3">Business</a>
 </center>
   <input type="hidden" value="Login">
   <div>    
